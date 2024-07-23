@@ -6,20 +6,19 @@
 {% block content %}
 
 <body>
-<h1> ARTICLES </h1>
-    <section class="document">
-        <div>
-            {% for pokemon in pokemons %}
-                   {% if (pokemon.isPublished) %}
-                        <div class="articles">
-                        <article class="article">
-                            <h2 class="titre"> {{ pokemon.title }}</h2>
-                            <p> {{ pokemon.content }}</p>
-                        </article>
-                   {% endif %}
-            {% endfor %}
-        </div>
-    </section>
+    <h1> ARTICLES </h1>
+    <div class="document">
+        {% for pokemon in pokemons %}
+            {% if (pokemon.isPublished) %}
+                <div class="articles">
+                    <article class="article">
+                        <h2 class="titre"> {{ pokemon.title }}</h2>
+                        <p> {{ pokemon.content }}</p>
+                    </article>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 </body>
 
 {% endblock %}

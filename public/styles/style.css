@@ -1,0 +1,101 @@
+header{
+    display: flex;
+    background-color: rgb(28, 129, 175);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    & img{
+        width : 100%;
+    }
+    & .image{
+        width : 10%;
+    }
+    & .central{
+        width : 80%;
+        display: flex;
+        flex-direction: column;
+    }
+    & h3{
+        text-align: center;
+        font-family: fantasy;
+        font-size: 48px;
+        color: gold;
+        margin :15px 0;
+        width: 100% ;
+
+    }
+    & ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    & a{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+    }
+}
+
+footer{
+    background-color: rgb(16, 64, 86);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    & img{
+        width : 5%;
+    }
+    & p{
+        width : 20%;
+    }
+    & div{
+        width : 90%;
+    }
+    & ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+body{
+    background-color: antiquewhite;
+    & h1{
+        text-align: center;
+        font-family: fantasy;
+        font-size: 48px;
+        color: gold;
+        margin :15px 0;
+        width: 100% ;
+    }
+    & .document{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    & .articles{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 32%;
+        margin: auto;
+    }
+    & .article{
+        background-color: rgb(20, 96, 134);
+        width: 90%;
+        text-align: center;
+        border-radius: 12px;
+        color: white;
+        margin: 10px;
+        transition: all 0.8s ease;
+        & p {
+            flex:1;
+            text-align:center;
+        }
+    }
+    & .article:hover{
+        background-color: rgb(133, 177, 198);
+        transform :scale(1.05);
+        text-align: center;
+        color: black;
+    }
+}

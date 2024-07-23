@@ -17,9 +17,9 @@ public function listCategory(){
         'Red', 'Green', 'Blue', 'Yellow', 'Gold', 'Silver', 'Crystal'
     ];
 
- $html=$this->renderview('page/Category.html.twig', [
-     'categories' => $categories
-      ]);
+    $html=$this->renderview('page/Category.html.twig', [
+        'categories' => $categories
+    ]);
 
     return new Response($html, 200);
     }
