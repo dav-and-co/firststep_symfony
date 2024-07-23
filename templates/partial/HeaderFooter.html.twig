@@ -1,0 +1,48 @@
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    {% block stylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<header>
+    <div class="image">
+        <img src="../assets/img/carapuce.jpg" alt="">
+    </div>
+    <div class="central">
+        <h3>Les pokemon de la piscine</h3>
+        <ul>
+            <li><a href="http://localhost/piscine-2207-symfonyBase/public/articles"> liste des articles </a></li>
+            <li><a href="">saisie d'un article</a></li>
+            <li><a href=""href>modification d'un article</a></li>
+            <li><a href=""href>suppression d'un article</a></li>
+
+        </ul>
+    </div>
+    <div class="image">
+        <img src="../assets/img/carapuce.jpg" alt="">
+    </div>
+</header>
+
+{% block content %}
+{% endblock %}
+
+     <footer>
+    <img src="../assets/img/image3.png" alt="">
+
+        <div>
+            <ul>
+                <li>Mentions légales</li>
+                <li>contact</li>
+                <li>Crédits</li>
+                <li>et tout le reste</li>
+            </ul>
+        </div>
+    </footer>
+</body>

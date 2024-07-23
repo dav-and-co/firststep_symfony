@@ -1,0 +1,26 @@
+
+
+
+{% extends 'partial/HeaderFooter.html.twig' %}
+
+{% block content %}
+
+<body>
+<h2> CATEGORIES </h2>
+    <section class="document">
+        <div>
+            {% for categorie in categories %}
+
+                        <div class="articles">
+                        <article class="article">
+                            <p> {{ categorie }}</p>
+                        </article>
+
+            {% endfor %}
+        </div>
+    </section>
+</body>
+
+{% endblock %}
+
+
