@@ -1,6 +1,14 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
 header{
     display: flex;
-    background-color: rgb(28, 129, 175);
+    background-color:  #93441A;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +27,7 @@ header{
         text-align: center;
         font-family: fantasy;
         font-size: 48px;
-        color: gold;
+        color: #fbeec1;
         margin :15px 0;
         width: 100% ;
 
@@ -34,12 +42,12 @@ header{
     }
     & a{
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        color: white;
+        color: #fbeec1;
     }
 }
 
 footer{
-    background-color: rgb(16, 64, 86);
+    background-color: #93441A;
     color: white;
     display: flex;
     flex-direction: row;
@@ -64,18 +72,23 @@ footer{
 }
 
 body{
-    background-color: antiquewhite;
-    & h1{
+    background-color: #daad86;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+        & h1{
         text-align: center;
         font-family: fantasy;
         font-size: 48px;
-        color: gold;
+        color: #bc986a;
         margin :15px 0;
         width: 100% ;
     }
     & .document{
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: 30px;
     }
     & .articles{
         display: flex;
@@ -83,16 +96,15 @@ body{
         justify-content: center;
         flex-wrap: wrap;
         width: 32%;
-        margin: auto;
+        margin: 0 auto;
     }
     & .article{
-        background-color: rgb(20, 96, 134);
+        background-color: #a18257;
         width: 90%;
         text-align: center;
-
         margin: 10px;
         color: white;
-        padding : 15px 15px;
+        padding : 0 15px;
         box-shadow: 5px 7px 18px -1px rgba(94, 110, 153,.4);
         border-radius: 500px;
         transition: all 0.8s ease;
@@ -109,7 +121,7 @@ body{
         }
     }
     & .article:hover{
-        background-color: rgb(133, 177, 198);
+        background-color: #ba935f;
         transform :scale(1.05);
         text-align: center;
         color: black;

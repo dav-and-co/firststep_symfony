@@ -3,6 +3,10 @@
 
 {% extends 'partial/HeaderFooter.html.twig' %}
 
+{% block metatitle %}
+    Pokemon : articles
+{% endblock %}
+
 {% block content %}
 
 <body>
@@ -12,7 +16,9 @@
             {% if (pokemon.isPublished) %}
                 <div class="articles">
                     <article class="article">
-                        <h2 class="titre"> {{ pokemon.title }}</h2>
+                         {#  methode avec le get #}
+                         {#  <h2 class="titre"> <a href ="{{ path( 'one_Article')}}?id={{pokemon.id }}"> {{ pokemon.title }}</a></h2> #}
+                        <h2 class="titre"> <a href ="{{ path( 'one_Article',{id: pokemon.id})}}"> {{ pokemon.title }}</a></h2>
                         <p> {{ pokemon.content }}</p>
                     </article>
                 </div>

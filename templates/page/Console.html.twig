@@ -1,0 +1,36 @@
+
+
+
+{% extends 'partial/ConsoleHeaderFooter.html.twig' %}
+
+{% block metatitle %}
+    Console : détail
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <main>
+        <div class="document">
+                <div class="articles">
+                    <article class="article">
+                        <h2 class="titre"> {{ console.title }}</h2>
+                        <p> prix : {{ console.price }}</p>
+                        <p> Montant de la réduction :{{ console.price_reduction }}</p>
+                        <p> Catégories :</p>
+                        {% for categories in console.categories %}
+                            <p> - {{ categories }}</p>
+                        {% endfor %}
+                        <div class="image">
+                            <img src="{{ asset(console.image) }}" alt="">
+                        </div>
+                    </article>
+                </div>
+            </main>
+    </div>
+
+</body>
+
+{% endblock %}
+
+

@@ -17,6 +17,7 @@ class indexController extends AbstractController
     // création de l'affichage de l'adresse intenet et renvoi vers ce controller
     #[Route('/', name: 'index')]
     public function index(){
-       return $this->render (view:'page/index.html.twig');
+
+        return $this->render (view:'page/index.html.twig');
     }
  }

@@ -1,0 +1,32 @@
+
+
+
+{% extends 'partial/ConsoleHeaderFooter.html.twig' %}
+
+{% block metatitle %}
+    Consoles : la liste
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <main>
+        <h1> CONSOLES HELAS TOUJOURS DISPONIBLES </h1>
+        <div class="document">
+            {% for console in consoles %}
+
+                    <div class="articles">
+                        <article class="article">
+                             <h2 class="titre"> <a href ="{{ path( 'one_console',{id: console.id})}}"> {{ console.title }}</a></h2>
+                            <p> {{ console.price }}</p>
+                        </article>
+                    </div>
+
+            {% endfor %}
+        </div>
+    </main>
+</body>
+
+{% endblock %}
+
+
