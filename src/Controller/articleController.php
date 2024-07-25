@@ -6,6 +6,7 @@ declare(strict_types=1);
 // localhost/piscine-2207-symfonyBase/public/articles
 
 namespace App\Controller;
+use App\Repository\PokemonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -121,6 +122,24 @@ class articleController extends AbstractController
             'pokemon' => $pokemonFound
         ]);
     }
+
+// localhost/piscine-2207-symfonyBase/public/pokemon-list-db
+
+// function qui récupère les données de la BDD
+    #[Route('/pokemon-list-db', name: 'pokemon_list_db')]
+    public function listPokemonFromDb(PokemonRepository $pokemonRepository) : response {
+        // récupère tous les pokemons en BDD
+
+        $pokemons = $pokemonRepository->findAll();
+
+
+        return $this->render('page/pokemon_list_db.html.twig', [
+            'pokemons' => $pokemons
+        ]);
+    }
+
+
+
 }
 
 
