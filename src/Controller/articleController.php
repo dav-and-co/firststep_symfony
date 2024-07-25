@@ -138,6 +138,20 @@ class articleController extends AbstractController
         ]);
     }
 
+// function qui récupère UNE donnée de la BDD au travers du choix de l'ID sur l'affichage de tous les articles
+    #[Route('/pokemon-one-db/{id}', name: 'pokemon_one_db')]
+    public function onePokemonFromDb(INT $id, PokemonRepository $pokemonRepository) : response {
+        // récupère 1 pokemons en BDD par son id
+
+        $pokemon = $pokemonRepository->find($id);
+
+
+        return $this->render('page/pokemon_one_db.html.twig', [
+            'pokemon' => $pokemon
+        ]);
+    }
+
+
 
 
 }

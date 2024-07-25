@@ -1,0 +1,29 @@
+
+
+
+{% extends 'partial/HeaderFooter.html.twig' %}
+
+{% block metatitle %}
+    Pokemon : articles de la BDD
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <h1> ARTICLES de la BDD </h1>
+    <div class="document">
+        <div class="articles">
+            <article class="article">
+                <h2 class="titre">{{ pokemon.title }}</h2>
+                <p> {{ pokemon.type }}</p>
+                <p> {{ pokemon.description }}</p>
+                <div class="image">
+                    <img src="{{ asset(pokemon.image) }}" alt="{{ pokemon.title }}">
+                </div>
+            </article>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+
