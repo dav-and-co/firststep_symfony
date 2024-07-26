@@ -123,6 +123,29 @@ class articleController extends AbstractController
         ]);
     }
 
+    // autre méhode en utilisant le get dans l'url
+
+//    #[Route('/article', name: 'one_Article')]
+//    public function oneArticle(Request $request) : Response {
+//
+//        // est remplacé par la création d'un instance de la class dans la fonction
+//    $request = Request::createfromGlobals();
+//        $id = (int)($request->query->get('id'));
+//        $pokemonFound = null;
+
+//        foreach ($this->pokemons as $pokemon) {
+//            if($pokemon['id'] === (int)$id) {
+//                $pokemonFound = $pokemon;
+//            }
+//        }
+//        return $this->render('page/Article.html.twig', [
+//            'pokemon' => $pokemonFound
+//        ]);
+//    }
+//}
+
+
+
 // localhost/piscine-2207-symfonyBase/public/pokemon-list-db
 
 // function qui récupère les données de la BDD
@@ -151,32 +174,35 @@ class articleController extends AbstractController
         ]);
     }
 
+    //rechercher un pokemon de la BDD à partir de son nom (title) attention à la casse
+    // localhost/piscine-2207-symfonyBase/public/pokemon-db/search/title
+
+    #[Route('/pokemon-db/search/title', name: 'pokemon_search')]
+    public function searchPokemon(Request $request, PokemonRepository $pokemonRepository): Response
+    {
+        $pokemonFound = null;
+
+        if ($request->request->has('title')) {
+
+            $titleSearched = $request->request->get('title');
+            $pokemonFound = $pokemonRepository->findOneBy(['title' => $titleSearched]);
+            if (!$pokemonFound) {
+                $html = $this->renderView('page/404.html.twig');
+                return new Response($html, 404);
+            }
+        }
+
+        return $this->render('page/pokemon_search.html.twig', [
+            'pokemon' => $pokemonFound
+        ]);
+    }
 
 
 
 }
 
 
-// autre méhode en utilisant le get dans l'url
 
-//    #[Route('/article', name: 'one_Article')]
-//    public function oneArticle(Request $request) : Response {
-//
-//        // est remplacé par la création d'un instance de la class dans la fonction
-//    $request = Request::createfromGlobals();
-//        $id = (int)($request->query->get('id'));
-//        $pokemonFound = null;
-
-//        foreach ($this->pokemons as $pokemon) {
-//            if($pokemon['id'] === (int)$id) {
-//                $pokemonFound = $pokemon;
-//            }
-//        }
-//        return $this->render('page/Article.html.twig', [
-//            'pokemon' => $pokemonFound
-//        ]);
-//    }
-//}
 
 
 
