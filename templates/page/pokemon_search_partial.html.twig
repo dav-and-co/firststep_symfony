@@ -1,0 +1,42 @@
+{% extends 'partial/HeaderFooter.html.twig' %}
+
+{% block metatitle %}
+    Pokemon BDD : search by name
+{% endblock %}
+
+{% block content %}
+<body>
+    <section>
+        <h1>Rechercher un pokemon à partir d'une partie de son nom</h1>
+    </section>
+    <section>
+        <form method="post" >
+            <label>
+                Nom
+                <input type="text" name="title"/>
+            </label>
+            <input type="submit">
+        </form>
+    </section>
+    <section>
+        {% for pokemon in pokemons %}
+
+            <div class="document">
+                <div class="articles">
+                    <article class="article">
+                        <h2 class="titre">{{ pokemon.title }}</h2>
+                        <p> {{ pokemon.type }}</p>
+                        <p> {{ pokemon.description }}</p>
+                        <div class="image">
+                            <img src="{{ asset(pokemon.image) }}" alt="{{ pokemon.title }}">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+</body>
+
+
+{% endblock %}

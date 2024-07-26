@@ -174,7 +174,7 @@ class articleController extends AbstractController
         ]);
     }
 
-    //rechercher un pokemon de la BDD à partir de son nom (title) attention à la casse
+    //rechercher un pokemon de la BDD à partir de son nom (title)
     // localhost/piscine-2207-symfonyBase/public/pokemon-db/search/title
 
     #[Route('/pokemon-db/search/title', name: 'pokemon_search')]
@@ -197,6 +197,31 @@ class articleController extends AbstractController
         ]);
     }
 
+
+    //rechercher un pokemon de la BDD à partir d'un partie du  nom (title)
+    // localhost/piscine-2207-symfonyBase/public/pokemon-db/search/partial
+    #[Route('/pokemon-db/search/partial', name: 'pokemon_search-partial')]
+    public function searchPokemonpartial(Request $request, PokemonRepository $pokemonRepository): Response
+    {
+        $pokemonsFound = [];
+        // vérifie s'il y a une valeur dans la varible title envoyée par le POST
+        if ($request->request->has('title')) {
+            // va recupérer la valeur saisie via une requète qui récupere le POST et l'affecte à une variable
+            $titleSearched = $request->request->get('title');
+            // fait appel à une methode de recherche partielle inexistante dans synfony mis créée directement dans le repository de pokemon
+            $pokemonsFound = $pokemonRepository->findLikeTitle($titleSearched);
+
+            //si la longueur du tableau de retour est 0 (donc vide car pas de correspondance), affiche la page d'erreur
+            if (count($pokemonsFound) === 0) {
+                $html = $this->renderView('page/404.html.twig');
+                return new Response($html, 404);
+            }
+        }
+        //sinon affiche le retour en passant le tableau en données
+        return $this->render('page/pokemon_search_partial.html.twig', [
+            'pokemons' => $pokemonsFound
+        ]);
+    }
 
 
 }
