@@ -30,7 +30,7 @@ class PokemonRepository extends ServiceEntityRepository
             //  et affecte ce résultat
             ->getQuery();
         // affecte au tableau pokémon ce résultat de la requète
-        $pokemons = $query->getArrayResult();
+        $pokemons = $query->getResult();
 
         return $pokemons;
     }

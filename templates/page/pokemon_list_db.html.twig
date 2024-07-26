@@ -15,9 +15,12 @@
         {% for pokemon in pokemons %}
                 <div class="articles">
                     <article class="article">
-                        <h2 class="titre"> <a href ="{{ path( 'pokemon_one_db',{id: pokemon.id})}}">{{ pokemon.title }}</a></h2>
+                        <h2 class="titre"> <a class="pale" href ="{{ path( 'pokemon_one_db',{id: pokemon.id})}}">{{ pokemon.title }}</a></h2>
                         <p> {{ pokemon.type }}</p>
                         <p> {{ pokemon.description }}</p>
+                        <div class="ared">
+                            <a class="red" href="{{ path('pokemon_delete', {id: pokemon.id}) }}">Supprimer le pokemon</a>
+                        </div>
                         <div class="image">
                             <img src="{{ asset(pokemon.image) }}" alt="{{ pokemon.title }}">
                         </div>

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 use App\Repository\PokemonRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -223,6 +224,24 @@ class articleController extends AbstractController
         ]);
     }
 
+    // supprimer un pokemon
+
+    // localhost/piscine-2207-symfonyBase/public/pokemon-db/delete
+    #[Route('/pokemon-db/delete/{id}', 'pokemon_delete')]
+    public function deletePokemon(int $id, Request $request, PokemonRepository $pokemonRepository, EntityManagerInterface $entityManager): Response
+    {
+        $pokemon = $pokemonRepository->find($id);
+        if ($pokemon === null) {
+            $html = $this->renderView('page/404.html.twig');
+            return new Response($html, 404);
+        }
+        // j'utilise la classe entity manager pour préparer la requête SQL de suppression cette requête n'est pas executée tout de suite
+        $entityManager->remove($pokemon);
+        // j'execute la / les requête SQL préparée
+        $entityManager->flush();
+
+        return $this->redirectToRoute('pokemon_list_db');
+    }
 
 }
 
