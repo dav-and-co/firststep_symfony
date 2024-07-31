@@ -21,6 +21,9 @@
                         <div class="ared">
                             <a class="red" href="{{ path('pokemon_delete', {id: pokemon.id}) }}">Supprimer le pokemon</a>
                         </div>
+                        <div class="ared">
+                            <a class="red" href="{{ path('pokemon_update', {id: pokemon.id}) }}">Modifier le pokemon</a>
+                        </div>
                         <div class="image">
                             <img src="{{ asset(pokemon.image) }}" alt="{{ pokemon.title }}">
                         </div>

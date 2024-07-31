@@ -1,0 +1,31 @@
+
+
+
+{% extends 'partial/HeaderFooter.html.twig' %}
+
+{% block metatitle %}
+    Pokemon : articles de la BDD
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <h1> ARTICLES de la BDD </h1>
+    <div class="document">
+        <div class="articles1">
+            <article class="article1">
+                {{ form_start(pokemonUpdateForm) }}
+                <h2 class="titre"> {{ form_row(pokemonUpdateForm.title) }}</h2>
+                <p> {{ form_row(pokemonUpdateForm.type) }}</p>
+                <p> {{ form_row(pokemonUpdateForm.description) }}</p>
+                <p>  {{ form_row(pokemonUpdateForm.image) }}</p>
+                {{ form_row(pokemonUpdateForm.validation) }}
+
+                {{ form_end(pokemonUpdateForm) }}
+            </article>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+

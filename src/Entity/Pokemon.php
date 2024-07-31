@@ -14,6 +14,7 @@ class Pokemon
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(['min' => 5])]
     private ?string $title = null;
 
     #[ORM\Column(length: 255, nullable:true)]
@@ -23,6 +24,7 @@ class Pokemon
     private ?string $image = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotNull(['message' => 'ne doit pas être nul'])]
     private ?string $type = null;
 
     public function getId(): ?int
@@ -37,6 +39,14 @@ class Pokemon
 
     public function setTitle(string $title): static
     {
+        // Pour gérer les contraintes de propriétés
+        // par exemple si un titre doit faire plus
+        // de X caractères
+        // on peut soulever une exception
+        // pour gérer l'erreur correctement
+        if (strlen($title) < 3) {
+            throw new \Exception('titre trop court');
+        }
         $this->title = $title;
 
         return $this;

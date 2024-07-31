@@ -1,0 +1,51 @@
+
+
+
+{% extends 'partial/HeaderFooter.html.twig' %}
+
+{% block metatitle %}
+    Pokemon : saisie pour la BDD
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <h1> Saisie d'un pokémon à ajouter à la BDD </h1>
+    <div class="document">
+        <div class="articles1">
+            <article>
+                <form class="article1" method="post">
+                    <label> Titre
+                        <input type="text" name="title">
+                    </label>
+
+                    <label> Image
+                        <input type="text" name="image">
+                    </label>
+
+                    <label> Description
+                        <input type="text" name="description">
+                    </label>
+
+                    <label> Type
+                        <input type="text" name="type">
+                    </label>
+                    <input class="input" type="submit" />
+                </form>
+            </article>
+        </div>
+    </div>
+
+    <div >
+        {% if error %}
+            <p class="message"> {{ error }} </p>
+        {% else %}
+            {% if pokemon %}
+                <p class="message">Le pokemon a bien créé ! </p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+{% endblock %}
+
+
